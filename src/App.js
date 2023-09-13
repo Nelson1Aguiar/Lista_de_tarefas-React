@@ -29,6 +29,18 @@ function App() {
             apagar();
         }
     };
+    const ontoggle = (todo) => {
+        setLista(
+            lista.map((objeto) =>
+                objeto.id === todo.id
+                    ? { ...objeto, checked: !todo.checked }
+                    : objeto
+            )
+        );
+    };
+    const onRemove = (todo) => {
+        setLista(lista.filter((objeto) => objeto.id !== todo.id));
+    };
 
     return (
         <section id="app" className="container">
@@ -46,8 +58,23 @@ function App() {
                 <ul className="todo-list">
                     {lista.map((paraFazer) => (
                         <li key={paraFazer.id.toString()}>
-                            <span className="todo">{paraFazer.title}</span>
-                            <button className="remove" type="button">
+                            <span
+                                className={[
+                                    'todo',
+                                    paraFazer.checked ? 'checked' : '',
+                                ].join(' ')}
+                                onClick={() => ontoggle(paraFazer)}
+                                onKeyPress={() => ontoggle(paraFazer)}
+                                role="button"
+                                tabIndex={0}
+                            >
+                                {paraFazer.title}
+                            </span>
+                            <button
+                                className="remove"
+                                type="button"
+                                onClick={() => onRemove(paraFazer)}
+                            >
                                 <MdDelete size={28} />
                             </button>
                         </li>
