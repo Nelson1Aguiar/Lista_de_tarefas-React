@@ -10,7 +10,7 @@
 - Botão excluir: Onde uma tarefa é retirada da lista por completo.
 
 ## Capturas de tela
-
+![image](https://github.com/Nelson1Aguiar/Lista_de_tarefas-React/assets/132019512/400b93f4-a078-4998-af56-4d7cae80575f)
 
 ## Tecnologias utilizadas
 - React
